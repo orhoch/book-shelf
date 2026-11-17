@@ -538,7 +538,7 @@ const FINQ=[['lp','.lpq'],['dr','#dfinal blockquote'],['dw','#wfinal blockquote'
 const obs=new MutationObserver(ms=>{for(const m of ms){if(m.type==='characterData')trNode(m.target);else if(m.type==='attributes')trAttr(m.target);else m.addedNodes.forEach(n=>{if(n.nodeType===3)trNode(n);else if(n.nodeType===1){walkT(n,trNode);trAttr(n);n.querySelectorAll&&n.querySelectorAll('[aria-label],[alt]').forEach(trAttr)}})}});
 function setLang(l){
  const en=l==='en';LANG=l;document.documentElement.lang=en?'en':'he';document.documentElement.dir=en?'ltr':'rtl';
- document.title=en?'Choose a book from the shelf':'בחרו ספר מהמדף';
+ document.title=en?'Pick a book from the shelf':'בחרו ספר מהמדף';
  $('langbtn').textContent=en?'עברית':'English';
  FINQ.forEach(([k,sel])=>{const el=document.querySelector(sel);if(!el)return;if(el.dataset.he===undefined)el.dataset.he=el.innerHTML;
   if(en){const f=QE.fin[k];el.innerHTML=f&&f.q?(f.raw?f.q:'"'+f.q+'"')+(f.s?'<cite>'+f.s+'</cite>':''):'';el.hidden=!(f&&f.q)}else{el.innerHTML=el.dataset.he;el.hidden=false}});
